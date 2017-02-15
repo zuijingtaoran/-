@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title><script   src="https://code.jquery.com/jquery-1.12.4.min.js"  
+     integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+</head>
+<body>
+<ul id="todo-app">
+  <li class="item">Walk the dog</li>
+  <li class="item">Pay bills</li>
+  <li class="item">Make dinner</li>
+  <li class="item">Code for one hour</li>
+</ul>
+<div>
+<ul id="ulItem">
+<li id="li1">1</li>
+<li id="li2">2</li>
+<li id="li3">3</li>
+<li id="li4">4</li>
+<li id="li5">5</li>
+<li id="li6">6</li>
+<li id="li7">7</li>
+<li id="li8">8</li>
+<li id="li9">9</li>
+<li id="li10">10</li>
+<li id="li11">11</li>
+
+<li id="li1000">1000</li>
+</ul>
+</div>
+<script type="text/javascript">
+//    var ulItem = document.getElementById("ulItem");
+//    ulItem.onclick = function (e) {
+//        e = e || window.event; //这一行及下一行是为兼容IE8及以下版本
+//        var target = e.target || e.srcElement;
+//        if (target.tagName.toLowerCase() === "li") {
+
+//            // console.log(target.innerHTML+" >位置为：" + getElementPosition(target).x + "," + getElementPosition(target).y);
+//        }
+//        console.info(target);
+//        console.log(target.tagName.toLowerCase() + '||' + target.innerHTML + " >位置为：" + getElementPosition(target).x + "," + getElementPosition(target).y);
+//    }
+    function getElementPosition(e) {
+        var x = 0, y = 0;
+        while (e != null) {
+            x += e.offsetLeft;
+            y += e.offsetTop;
+            e = e.offsetParent;
+        }
+        return { x: x, y: y };
+    }
+</script> 
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+
+        var app = document.getElementById('todo-app');
+        var items = app.getElementsByClassName('item');
+
+        // attach event listener to each item
+        for (i = 0; i < items.length; i++) {
+            items[i].addEventListener('click', function (e) {
+                console.log($(e.target).html());
+                console.log(e.target.className);
+                console.info(e);
+            });
+        }
+
+
+
+        //////////////////
+        var lis = document.getElementById('ulItem');
+        lis.addEventListener('click', function (e) {
+            e = e || window.event; //这一行及下一行是为兼容IE8及以下版本
+            var target = e.target || e.srcElement;
+            if (target.tagName.toLowerCase() === "li") {
+
+                // console.log(target.innerHTML+" >位置为：" + getElementPosition(target).x + "," + getElementPosition(target).y);
+            }
+            console.info(target);
+            console.log(target.tagName.toLowerCase() + '||' + target.innerHTML + " >位置为：" + getElementPosition(target).x + "," + getElementPosition(target).y);
+   
+         })
+
+    });
+    //@事件委托 http://www.tuicool.com/articles/jQZj6zB
+   
+</script>
+</body>
+</html>
